@@ -1,12 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as images from "@image-assets";
+import { Toast } from "primereact/toast";
 
 import { Clipboard } from "../Clipboard/Clipboard";
 import "./Header.scss";
 
-export const Header = (props) => {
+export const Header = () => {
+  const toastRef = useRef(null);
   const [copyEnvelope, setCopyEnvelope] = useState(false);
   const [positionToast, setPositionToast] = useState();
+
+  const showToast = ({ severity, message }) =>
+    toastRef.current.show({
+      severity: severity,
+      summary: "Copying e-mail",
+      detail: message,
+    });
 
   useEffect(() => {
     const positionToastResize = () => {
@@ -23,6 +32,7 @@ export const Header = (props) => {
 
   return (
     <div className="header">
+      <Toast ref={toastRef} position={positionToast} />
       <div className="header__brands">
         <div className="title">Follows us: </div>
         <div className="brand">
@@ -64,7 +74,7 @@ export const Header = (props) => {
             {copyEnvelope ? (
               <Clipboard
                 text="alekseylebedik1996@gmail.com"
-                positionToast={positionToast}
+                showToast={showToast}
               />
             ) : (
               <i className={"pi pi-envelope item"} />

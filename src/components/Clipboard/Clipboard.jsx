@@ -1,22 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Toast } from "primereact/toast";
-
+import React, { useEffect, useState } from "react";
 import "./Clipboard.scss";
 import { useCopyToClipboard } from "./useClipboard";
 
-export const Clipboard = ({ text, positionToast }) => {
-  const toastRef = useRef(null);
+export const Clipboard = ({ text, showToast }) => {
   const [_, onCopy] = useCopyToClipboard();
-
   const [clipboardStatus, setClipboardStatus] = useState();
   const [iconEvent, setIconEvent] = useState("pi-copy");
-
-  const showToast = ({ severity, message }) =>
-    toastRef.current.show({
-      severity: severity,
-      summary: "Copying e-mail",
-      detail: message,
-    });
 
   useEffect(() => {
     if (clipboardStatus) {
@@ -28,21 +17,18 @@ export const Clipboard = ({ text, positionToast }) => {
   }, [clipboardStatus]);
 
   return (
-    <>
-      <Toast ref={toastRef} position={positionToast} />
-      <i
-        className={`pi ${iconEvent} clipboard`}
-        onClick={async () => {
-          const copyStatus = await onCopy(text);
-          showToast({
-            severity: copyStatus ? "success" : "error",
-            message: copyStatus
-              ? "You've successfully copied the email"
-              : "Failed to copy email",
-          });
-          setClipboardStatus({ status: copyStatus });
-        }}
-      />
-    </>
+    <i
+      className={`pi ${iconEvent} clipboard`}
+      onClick={async () => {
+        const copyStatus = await onCopy(text);
+        showToast({
+          severity: copyStatus ? "success" : "error",
+          message: copyStatus
+            ? "You've successfully copied the email"
+            : "Failed to copy email",
+        });
+        setClipboardStatus({ status: copyStatus });
+      }}
+    />
   );
 };
