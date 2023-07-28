@@ -1,0 +1,67 @@
+.animate-left-rectangle-step-1 {
+  transform: translateX(300px) scale(0.3);
+}
+
+.animate-top-rectangle-start {
+  animation-name: TOP_RECTANGLE_START;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes TOP_RECTANGLE_START {
+  0% {
+    transform: translate(0px) scale(0.3);
+    animation-timing-function: linear; /* Animation speed for the initial step (0%) */
+    animation-duration: 0.5s; /* Duration for the initial step (0%) */
+  }
+
+  50% {
+    transform: translate(40px, -120px) scale(0.3);
+    animation-timing-function: linear; /* Animation speed for the initial step (0%) */
+    animation-duration: 1s; /* Duration for the initial step (0%) */
+  }
+  100% {
+    transform: translate(70px, -240px) scale(1);
+    animation-delay: 0.3s;
+    /* The timing function and duration for the final step (100%) remain the same as in .animate-top-rectangle-start */
+  }
+}
+
+.animate-right-rectangle-step-1 {
+  transform: translateX(-300px) scale(0.3);
+}
+
+.animate-bottom-rectangle-step-1 {
+  transform: translateY(-300px) scale(0.3);
+}
+
+.animate-bottom-rectangle-step-2 {
+  transform: translateY(-300px) scale(2);
+  transition: transform 1s ease-out;
+  z-index: 100;
+}
+
+.animate-right-rectangle-step-2 {
+  transform: translateX(-300px) scale(2);
+  transition: transform 1s ease-out;
+  z-index: 100;
+}
+
+.animate-left-rectangle-step-2 {
+  transform: translateX(300px) scale(2);
+  transition: transform 1s ease-out;
+  z-index: 100;
+}
+
+@keyframes startingPosition {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-300px, -300px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}

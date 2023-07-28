@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "@components";
+import { Header, Body } from "@components";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
@@ -14,6 +14,7 @@ export const MainPage = (props) => {
     <PrimeReactProvider>
       <div className="main-page">
         <Header />
+        <Body />
       </div>
     </PrimeReactProvider>
   );
