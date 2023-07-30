@@ -1,9 +1,16 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import * as images from "@image-assets";
-import { Button } from "primereact/button";
 import { Rectangle } from "./components/Rectangle/Rectangle";
 import "./Body.scss";
 import { ANIMATION_POINT } from "./animate";
+import { AboutTitle } from "./components/AboutTitle/AboutTitle";
+import { ContactTitle } from "./components/ContactTitle/ContactTitle";
 
 const Items = [
   {
@@ -23,9 +30,29 @@ const Items = [
   },
 ];
 
-export const Body = (props) => {
+export const Body = () => {
   const wrapperRef = useRef();
   const [clickedRectangle, setClickedRectangle] = useState(false);
+  const [aboutTitle, setAboutTitle] = useState(true);
+  const [contactTitle, setContactTitle] = useState(false);
+
+  const onClickAbout = useCallback(() => {
+    if (contactTitle) {
+      setContactTitle(false);
+      setAboutTitle(!aboutTitle);
+    } else {
+      setAboutTitle(!aboutTitle);
+    }
+  }, [contactTitle, aboutTitle]);
+
+  const onClickContact = useCallback(() => {
+    if (aboutTitle) {
+      setAboutTitle(false);
+      setContactTitle(!contactTitle);
+    } else {
+      setContactTitle(!contactTitle);
+    }
+  }, [contactTitle, aboutTitle]);
 
   const [animate, setAnimate] = useState([
     ANIMATION_POINT.start,
@@ -61,41 +88,11 @@ export const Body = (props) => {
         </div>
         {Rectangels}
         <div className="rectangels-wrapper__introduce">
-          <div className="about">About me:</div>
-          <div className="paragraph">
-            Hey, I have a lot of commercial{" "}
-            <span className="warn">experience for more than 2 years</span> in
-            React js, I have worked in companies such as
-            <span className="warn"> Demonware</span> and
-            <span className="warn"> Perspective Studio</span>.
-          </div>
-          <div className="paragraph">
-            You've come to the right place. I can help you with: - Creating
-            component library to <span className="warn">Storybook</span> based
-            on
-            <span className="warn">Material UI</span> and{" "}
-            <span className="warn">Figma</span> designs; - API implementation,
-            design of independent front-end/back-end apps, landing pages
-            builders, transportation online marketplaces; - Refactoring old
-            architectures to comply with modern technologies and approaches; -
-            Building apps from scratch; - Development of complex UI, etc.
-          </div>
-          <div className="paragraph">
-            For building the best apps and bringing the best solutions to my
-            clients I use modern{" "}
-            <span className="warn">JavaScript frameworks</span> and{" "}
-            <span className="warn">React JS</span> for frontend and to create a
-            stellar finished product I implement API integrations on the
-            backend.
-          </div>
-          <div className="contact">
-            <div className="contact__label">Contact us</div>
-            <Button
-              icon="pi pi-bell"
-              severity="warning"
-              aria-label="Notification"
-            />
-          </div>
+          <AboutTitle onClickAbout={onClickAbout} aboutTitle={aboutTitle} />
+          <ContactTitle
+            onClickContact={onClickContact}
+            contactTitle={contactTitle}
+          />
         </div>
       </div>
     </div>

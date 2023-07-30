@@ -1,0 +1,64 @@
+.input-form-basic {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 5px;
+  #basic-label-input {
+    transition: top 0.4s ease-in-out;
+    top: 13px;
+    &-active {
+      top: 0px;
+      transition: top 0.4s ease-in-out;
+    }
+  }
+
+  &__label {
+    user-select: none;
+    font-family: "Mukta", sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    position: absolute;
+    color: #3e3e3e;
+    right: 0;
+  }
+  &__input {
+    color: #3e3e3e;
+    input {
+      font-size: 18px;
+      padding: 10px;
+      width: 100%;
+      background-color: inherit;
+      border: none;
+      &::placeholder {
+        text-transform: uppercase;
+        color: #3e3e3e;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.input-form {
+  input {
+    border-bottom: 2px solid #3e3e3e;
+  }
+}
+
+.message-form {
+  .input-form-basic__input {
+    vertical-align: top;
+    border: 2px solid #3e3e3e;
+    min-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  #basic-label-input {
+    top: -20px;
+    &-active {
+      top: -33px;
+    }
+  }
+}

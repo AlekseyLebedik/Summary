@@ -1,18 +1,8 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
-} from "react";
-import { motion, useDragControls } from "framer-motion";
+import React, { useCallback, useMemo } from "react";
 import { ANIMATION_POINT } from "../../animate";
 
 import "./Rectangle.scss";
-import {
-  useOptionsRectangle,
-  useRulesAnimate,
-} from "../../useOptionsRectangle";
+import { useOptionsRectangle } from "../../useOptionsRectangle";
 
 export const Rectangle = ({
   image,

@@ -1,0 +1,92 @@
+.contact {
+  &__form {
+    margin-top: 20px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  &__describe {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4c601;
+    overflow: hidden;
+    gap: 10px;
+
+    &--open {
+      animation-name: openDescribe;
+      animation-duration: 2s;
+      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+      animation-fill-mode: forwards;
+      overflow: hidden;
+      .paragraph {
+        opacity: 0;
+        animation-name: openParagraph;
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        animation-fill-mode: forwards;
+      }
+    }
+    &--close {
+      overflow: hidden;
+      animation-name: closeDescribe;
+      animation-duration: 2s;
+      animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+      animation-fill-mode: forwards;
+
+      .paragraph {
+        animation-name: closeParagraph;
+        animation-duration: 0.5s;
+        animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+@keyframes closeDescribe {
+  0% {
+    height: auto;
+  }
+  100% {
+    border: 1px solid #f4c601;
+    height: 0px;
+    overflow: hidden;
+  }
+}
+
+@keyframes openDescribe {
+  0% {
+    border: 1px solid #f4c601;
+    height: 0px;
+    overflow: hidden;
+  }
+  100% {
+    border: 1px solid #f4c601;
+    height: auto;
+    overflow: visible;
+  }
+}
+
+@keyframes openParagraph {
+  0% {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes closeParagraph {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-500px);
+  }
+}

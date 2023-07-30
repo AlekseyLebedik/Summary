@@ -34,7 +34,7 @@ export const Header = () => {
     <div className="header">
       <Toast ref={toastRef} position={positionToast} />
       <div className="header__brands">
-        <div className="title">Follows us: </div>
+        <div className="title">Follow me: </div>
         <div className="brand">
           <a href="https://www.linkedin.com/in/aleksey-lebedik-07678a20a/">
             <i className="pi pi-linkedin" />
