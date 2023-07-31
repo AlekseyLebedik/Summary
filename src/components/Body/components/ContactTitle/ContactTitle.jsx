@@ -73,6 +73,7 @@ export const ContactTitle = ({ contactTitle, onClickContact }) => {
           });
         }
       );
+    setFormDisabled({ email: false, message: false });
     event.target.reset();
   };
 
