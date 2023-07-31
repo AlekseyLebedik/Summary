@@ -12,7 +12,9 @@
       transition: top 0.4s ease-in-out;
     }
   }
-
+  &__message {
+    color: #ef4444;
+  }
   &__label {
     user-select: none;
     font-family: "Mukta", sans-serif;
@@ -21,16 +23,23 @@
     position: absolute;
     color: #3e3e3e;
     right: 0;
+    &.error {
+      color: #ef4444;
+    }
   }
   &__input {
     color: #3e3e3e;
-    input {
+    input,
+    textarea {
+      border: 1px solid red;
+      font-family: "Montserrat", sans-serif;
       font-size: 18px;
       padding: 10px;
       width: 100%;
       background-color: inherit;
       border: none;
       &::placeholder {
+        font-size: 15px;
         text-transform: uppercase;
         color: #3e3e3e;
       }
@@ -61,4 +70,13 @@
       top: -33px;
     }
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border-bottom: 2px solid #3e3e3e;
+  -webkit-text-fill-color: #3e3e3e;
+  -webkit-box-shadow: 0 0 0px 1000px #f4c601 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

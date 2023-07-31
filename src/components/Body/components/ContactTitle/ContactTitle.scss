@@ -1,10 +1,45 @@
 .contact {
   &__form {
     margin-top: 20px;
-    min-height: 500px;
     display: flex;
     flex-direction: column;
     gap: 50px;
+  }
+  &__submit {
+    user-select: none;
+    align-self: flex-end;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 16px 24px;
+    border: 2px solid #3e3e3e;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    & input {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 100%;
+      opacity: 0;
+    }
+    &.contact__disabled-submit {
+      pointer-events: none;
+    }
+    &:hover {
+      background-color: #f59e0b;
+      transition: all 0.4s ease-in-out;
+      color: white;
+      border: 2px solid #f4c601;
+    }
+    span {
+      font-family: "Mukta", sans-serif;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
   }
   &__describe {
     box-sizing: border-box;
@@ -14,6 +49,10 @@
     background-color: #f4c601;
     overflow: hidden;
     gap: 10px;
+
+    &--start {
+      height: 0px;
+    }
 
     &--open {
       animation-name: openDescribe;

@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import * as images from "@image-assets";
 import { Toast } from "primereact/toast";
 
 import { Clipboard } from "../Clipboard/Clipboard";
 import "./Header.scss";
+import { ToastContext } from "../../context/ToastContext";
 
 export const Header = () => {
-  const toastRef = useRef(null);
+  const { toastRef } = useContext(ToastContext);
   const [copyEnvelope, setCopyEnvelope] = useState(false);
-  const [positionToast, setPositionToast] = useState();
 
   const showToast = ({ severity, message }) =>
     toastRef.current.show({
@@ -17,22 +17,8 @@ export const Header = () => {
       detail: message,
     });
 
-  useEffect(() => {
-    const positionToastResize = () => {
-      const widthWindow = window.outerWidth;
-      setPositionToast(widthWindow < 720 ? "top-right" : "top-left");
-    };
-    positionToastResize();
-    addEventListener("resize", positionToastResize);
-
-    return function cleanUp() {
-      removeEventListener("resize", positionToastResize);
-    };
-  }, []);
-
   return (
     <div className="header">
-      <Toast ref={toastRef} position={positionToast} />
       <div className="header__brands">
         <div className="title">Follow me: </div>
         <div className="brand">
