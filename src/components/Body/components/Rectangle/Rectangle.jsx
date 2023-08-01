@@ -20,7 +20,7 @@ export const Rectangle = ({
   const { styleRectangle } = useOptionsRectangle(indexRectangle, animate);
 
   const onClickHandler = useCallback(() => {
-    setClickedRectangle(true);
+    setClickedRectangle({ status: true, currentRectangle: { image, title } });
     setAnimate(
       animate.map((anim, index) => {
         if (index === indexRectangle) return ANIMATION_POINT.clicked;

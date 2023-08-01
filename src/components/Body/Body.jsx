@@ -6,6 +6,7 @@ import React, {
   useState,
 } from "react";
 import * as images from "@image-assets";
+import Popup from "../Popup/Popup";
 import { Rectangle } from "./components/Rectangle/Rectangle";
 import "./Body.scss";
 import { ANIMATION_POINT } from "./animate";
@@ -13,6 +14,11 @@ import { AboutTitle } from "./components/AboutTitle/AboutTitle";
 import { ContactTitle } from "./components/ContactTitle/ContactTitle";
 
 const Items = [
+  {
+    title: "Companies",
+    image: images.companyPhoto,
+    uniqKey: "uniqkeu3",
+  },
   {
     title: "Skills",
     image: images.skilsPhoto,
@@ -23,16 +29,14 @@ const Items = [
     image: images.achivmentsPhoto,
     uniqKey: "uniqkeu2",
   },
-  {
-    title: "Company",
-    image: images.companyPhoto,
-    uniqKey: "uniqkeu3",
-  },
 ];
 
 export const Body = () => {
   const wrapperRef = useRef();
-  const [clickedRectangle, setClickedRectangle] = useState(false);
+  const [clickedRectangle, setClickedRectangle] = useState({
+    status: false,
+    currentRectangle: null,
+  });
   const [aboutTitle, setAboutTitle] = useState(true);
   const [contactTitle, setContactTitle] = useState(false);
 
@@ -80,9 +84,15 @@ export const Body = () => {
 
   return (
     <div className="body-container">
+      <Popup
+        setAnimate={setAnimate}
+        activePopup={clickedRectangle.status}
+        currentRectangle={clickedRectangle.currentRectangle}
+        setActivePopup={setClickedRectangle}
+      />
       <div className="rectangels-wrapper" ref={wrapperRef}>
         <div className="rectangels-wrapper__center">
-          <span className={`${clickedRectangle && "hide"}`}>
+          <span className={`${clickedRectangle.status && "hide"}`}>
             Click the card
           </span>
         </div>

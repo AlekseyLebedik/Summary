@@ -1,0 +1,32 @@
+.company {
+  min-height: 500px;
+  font-size: 15px;
+  color: white;
+  line-height: 170%;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    user-select: none;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    line-height: 100%;
+    gap: 5px;
+    & .comp {
+      font-size: 20px;
+      font-family: "Mukta", sans-serif;
+      text-transform: uppercase;
+    }
+    & .skills {
+      margin-left: 10px;
+      font-size: 13px;
+      color: #f4c601;
+    }
+  }
+}
