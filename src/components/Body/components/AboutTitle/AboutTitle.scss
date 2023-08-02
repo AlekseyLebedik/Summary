@@ -37,8 +37,10 @@
       animation-duration: 2s;
       animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
       animation-fill-mode: forwards;
-
+      transition: visibility 0.5s ease;
       .paragraph {
+        transition: visibility 0.5s ease;
+        visibility: hidden;
         animation-name: closeParagraph;
         animation-duration: 0.5s;
         animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -75,7 +77,7 @@
 @keyframes openParagraph {
   0% {
     opacity: 0;
-    transform: translateY(-400px);
+    transform: translateY(-700px);
   }
   100% {
     opacity: 1;
@@ -85,10 +87,11 @@
 
 @keyframes closeParagraph {
   0% {
+    opacity: 1;
     transform: translateY(0px);
   }
   100% {
-    opacity: 1;
-    transform: translateY(-500px);
+    opacity: 0;
+    transform: translateY(-700px);
   }
 }

@@ -78,6 +78,7 @@ export const ComponyContent = () => {
             Last small freelance project. Most of the project was done
             independently. I worked with
             <span className="emphasis">
+              {" "}
               React JS, Redux-Saga, Primereact, Restfull API, SASS
             </span>
             . From unusual - wrote my

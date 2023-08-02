@@ -3,7 +3,7 @@
   overflow: hidden;
   background-color: #151a1e;
   display: grid;
-  grid-template-columns: 1fr minmax(300px, 1.5fr) 50%;
+  grid-template-columns: minmax(220px, 1fr) minmax(300px, 1.5fr) 50%;
   align-items: center;
   color: white;
   gap: 20px;
@@ -57,7 +57,7 @@
     box-sizing: border-box;
     height: 100%;
     position: relative;
-    padding: 75px 50px;
+    padding: 75px 10px;
     display: flex;
     align-items: end;
     justify-content: flex-end;
@@ -251,7 +251,9 @@
 
 @media screen and (max-width: 1054px) {
   .header {
-    &__brands,
+    &__brands {
+      padding: 50px 10px;
+    }
     &__info {
       padding: 50px 20px;
     }
@@ -274,6 +276,7 @@
       margin: 50px 0;
     }
     &__brands {
+      z-index: 55;
       grid-column: 2;
       grid-row: 2;
       padding: 10px 20px;

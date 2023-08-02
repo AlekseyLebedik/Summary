@@ -40,11 +40,19 @@
 }
 
 @media screen and (max-width: 900px) {
-  .wrapper-content {
-    &__title {
-      position: static;
-      text-align: center;
-      margin-top: 30px;
-    }
+  .wrapper-content__title {
+    position: static;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .wrapper-content__children {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper-content__title {
+    text-align: start;
+    margin-left: 16px;
   }
 }

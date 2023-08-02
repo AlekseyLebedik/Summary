@@ -51,65 +51,179 @@ const animatePostion = (indexRectangle, position, point, bounce) => {
 };
 
 export const getAnimation = (indexRectangle, point, bounce) => {
-  let position;
-  switch (point) {
-    case ANIMATION_POINT.clicked:
-      position = [
-        {
-          translate: ["-170px, 0", "-170px, 0px"],
-          scale: [0.45, 0.45],
-          rotate: [0, 0],
-        },
-        {
-          translate: ["-170px, 0", "-170px, 0px"],
-          scale: [0.45, 0.45],
-          rotate: [0, 0],
-        },
-        {
-          translate: ["-170px, 0", "-170px, 0px"],
-          scale: [0.45, 0.45],
-          rotate: [0, 0],
-        },
-      ];
-      return animatePostion(indexRectangle, position, point, bounce);
-    case ANIMATION_POINT.returned:
-      position = [
-        {
-          translate: ["-170px, 0", "0px, -240px"],
-          scale: [0.45, 1],
-          rotate: [0, 0],
-        },
-        {
-          translate: ["-170px, 0", "240px, 0px"],
-          scale: [0.45, 1],
-          rotate: [0, 0],
-        },
-        {
-          translate: ["-170px, 0", "0px, 270px"],
-          scale: [0.45, 1],
-          rotate: [0, 0],
-        },
-      ];
-      return animatePostion(indexRectangle, position, point, bounce);
+  const switcherAnimate = (position, point) => {
+    switch (point) {
+      case ANIMATION_POINT.clicked:
+        return animatePostion(indexRectangle, position.clicked, point, bounce);
+      case ANIMATION_POINT.returned:
+        return animatePostion(indexRectangle, position.returned, point, bounce);
 
-    case ANIMATION_POINT.start:
-      position = [
-        {
-          translate: ["-170px, 0", "0px, -240px"],
-          scale: [0.45, 1],
-          rotate: [0, 0],
-        },
-        {
-          translate: ["-170px, 0", "240px, 0px"],
-          scale: [0.45, 1],
-          rotate: [0, 0],
-        },
-        {
-          translate: ["-170px, 0", "0px, 270px"],
-          scale: [0.45, 1],
-          rotate: [0, 0],
-        },
-      ];
-      return animatePostion(indexRectangle, position, point, bounce);
-  }
+      case ANIMATION_POINT.start:
+        return animatePostion(indexRectangle, position.start, point, bounce);
+    }
+  };
+
+  const mainPosition = {
+    start: [
+      {
+        translate: ["-170px, 0", "0px, -240px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["-170px, 0", "240px, 0px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["-170px, 0", "0px, 270px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+    ],
+    clicked: [
+      {
+        translate: ["-170px, 0", "-170px, 0px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["-170px, 0", "-170px, 0px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["-170px, 0", "-170px, 0px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+    ],
+    returned: [
+      {
+        translate: ["-170px, 0", "0px, -240px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["-170px, 0", "240px, 0px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["-170px, 0", "0px, 270px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+    ],
+  };
+
+  const tabletPosition = {
+    start: [
+      {
+        translate: ["1000px, -850px", "30px, -520px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "130px, -350px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "30px, -180px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+    ],
+    clicked: [
+      {
+        translate: ["1000px, -1000px", "1000px, -1000px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -1000px", "1000px, -1000px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -1000px", "1000px, -1000px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+    ],
+    returned: [
+      {
+        translate: ["1000px, -850px", "30px, -520px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "130px, -350px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "30px, -180px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+    ],
+  };
+
+  const mobilePosition = {
+    start: [
+      {
+        translate: ["1000px, -850px", "30px, -570px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "130px, -400px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "30px, -230px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+    ],
+    clicked: [
+      {
+        translate: ["1000px, -1000px", "1000px, -1000px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -1000px", "1000px, -1000px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -1000px", "1000px, -1000px"],
+        scale: [0.45, 0.45],
+        rotate: [0, 0],
+      },
+    ],
+    returned: [
+      {
+        translate: ["1000px, -850px", "30px, -520px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "130px, -350px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+      {
+        translate: ["1000px, -850px", "30px, -180px"],
+        scale: [0.45, 1],
+        rotate: [0, 0],
+      },
+    ],
+  };
+
+  return switcherAnimate(mainPosition, point);
 };

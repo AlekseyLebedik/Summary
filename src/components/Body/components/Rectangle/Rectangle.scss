@@ -56,3 +56,52 @@
     }
   }
 }
+
+@media screen and (max-width: 1300px) {
+  .rectangle {
+    position: static;
+    justify-self: center;
+    align-self: start;
+    margin-top: 70px;
+    &__title {
+      &.left {
+        transform: translate(0px, 250px);
+      }
+      &.right {
+        transform: translate(0px, 250px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 725px) {
+  .rectangle {
+    justify-self: start;
+    margin-left: 16px;
+    &__title {
+      &.left {
+        transform: translate(220px, 115px);
+      }
+      &.right {
+        transform: translate(220px, 115px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .rectangle {
+    justify-self: center;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    &__title {
+      &.left {
+        transform: translate(50px, 220px);
+      }
+      &.right {
+        transform: translate(0px, 220px);
+      }
+    }
+  }
+}
