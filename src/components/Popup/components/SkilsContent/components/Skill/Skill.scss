@@ -1,0 +1,63 @@
+.skill {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: 50px;
+  gap: 10px;
+  &__title {
+    border: 3px solid white;
+    box-sizing: border-box;
+    display: flex;
+    & .image {
+      padding: 5px;
+      width: 70px;
+      height: 100%;
+      svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        fill: #f4c601 !important;
+      }
+    }
+    & .name {
+      padding: 5px;
+      font-family: "Mukta", sans-serif;
+      font-size: 13px;
+      color: #f4c601;
+      text-transform: uppercase;
+    }
+  }
+  &__describe {
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid white;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  &__describe {
+    display: flex;
+    flex-direction: column;
+    .years {
+      display: flex;
+      gap: 10px;
+      color: #f4c601;
+      span {
+        color: white;
+        font-size: 13px;
+      }
+    }
+    .bricks-container {
+      align-self: flex-end;
+      height: 20px;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.brick {
+  width: 10px;
+  height: 100%;
+  background-color: white;
+  transform: skew(30deg, 0deg);
+}

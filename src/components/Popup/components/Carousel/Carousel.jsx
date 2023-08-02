@@ -25,7 +25,8 @@ const ProductTemplate = (product) => {
     }
 
     return function cleanUp() {
-      imageRef.current.removeEventListener("mousemove", trackCursorPosition);
+      if (imageRef.current)
+        imageRef.current.removeEventListener("mousemove", trackCursorPosition);
     };
   }, [hover]);
 

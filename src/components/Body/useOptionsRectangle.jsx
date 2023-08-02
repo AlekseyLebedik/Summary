@@ -9,8 +9,8 @@ export const useOptionsRectangle = (index, animate) => {
   const [styleRectangle, setStyleRectangle] = useState({});
 
   useEffect(() => {
-    const calculateWidthWindow = (width) => {
-      if (width <= 1300) {
+    const calculateWidthWindow = ({ target: { outerWidth } }) => {
+      if (outerWidth <= 1300) {
         setIsSmallScreen(true);
         setWidth(200);
         setHeight(200);
@@ -22,9 +22,7 @@ export const useOptionsRectangle = (index, animate) => {
       setIsSmallScreen(false);
     };
 
-    addEventListener("resize", ({ target: { innerWidth } }) =>
-      calculateWidthWindow(innerWidth)
-    );
+    addEventListener("resize", calculateWidthWindow);
 
     return function cleanUp() {
       removeEventListener("resize", calculateWidthWindow);

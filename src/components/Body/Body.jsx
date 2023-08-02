@@ -25,8 +25,8 @@ const Items = [
     uniqKey: "uniqkeu1",
   },
   {
-    title: "Achivments",
-    image: images.achivmentsPhoto,
+    title: "Roadmap",
+    image: images.roadsPhoto,
     uniqKey: "uniqkeu2",
   },
 ];

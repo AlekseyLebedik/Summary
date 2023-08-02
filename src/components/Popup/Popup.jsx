@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ANIMATION_POINT } from "../Body/animate";
 import { ComponyContent } from "./components/ComponyContent/ComponyContent";
+import { SkillsContent } from "./components/SkilsContent/SkilsContent";
 
 import "./Popup.scss";
 
@@ -16,9 +17,10 @@ export default ({
 
   const ContentTemplate = useMemo(() => {
     switch (currentRectangle?.title.toUpperCase()) {
-      // case "COMPANIES":
-      //   break;
-
+      case "COMPANIES":
+        return <ComponyContent />;
+      case "SKILLS":
+        return <SkillsContent />;
       default:
         return <ComponyContent />;
     }
