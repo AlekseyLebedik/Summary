@@ -4,6 +4,7 @@ import { ComponyContent } from "./components/ComponyContent/ComponyContent";
 import { SkillsContent } from "./components/SkilsContent/SkilsContent";
 
 import "./Popup.scss";
+import { RoadmapContent } from "./components/RoadmapContent/RoadmapContent";
 
 export default ({
   activePopup,
@@ -21,8 +22,8 @@ export default ({
         return <ComponyContent />;
       case "SKILLS":
         return <SkillsContent />;
-      default:
-        return <ComponyContent />;
+      case "ROADMAP":
+        return <RoadmapContent />;
     }
   }, [currentRectangle]);
 
